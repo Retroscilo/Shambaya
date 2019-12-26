@@ -118,49 +118,46 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"main.js":[function(require,module,exports) {
-/* var c1 = document.querySelector('.c1');
-var c2 = document.querySelector('.c2');
-var c3 = document.querySelector('.c3');
-var c4 = document.querySelector('.c4');
-var c = document.querySelectorAll('.c');
-
+var c1 = document.querySelector('.r1');
+var c2 = document.querySelector('.r2');
+var c3 = document.querySelector('.r3');
+var c4 = document.querySelector('.r4');
+var c = document.querySelectorAll('.room');
 var counter = 0;
 var counting = true;
 
-var w = document.querySelectorAll('.w');
-
-const reset = () => {
-  for (let i = 0; i < 4; i++) {
-    c[i].style.opacity = 0;
-    w[i].classList.remove('active')
+var reset = function reset() {
+  for (var i = 0; i < 4; i++) {
+    hovers[i].classList.remove('hovered');
+    CTAs[i].classList.remove('CTA--active');
+    tests[i].classList.remove('p--active');
   }
-}
+};
 
-const view = () => {
-  reset()
-  c[counter].style.opacity = 1;
-  w[counter].classList.add('active')
-}
+var view = function view() {
+  reset();
+  hovers[counter].classList.add('hovered');
+  CTAs[counter].classList.add('CTA--active');
+  tests[counter].classList.add('p--active');
+};
 
-const count = () => {
-
-  setInterval(() => {
-    if (counting) {
+var count = function count() {
+  console.log(counter);
+  setInterval(function () {
+    if (counting == true) {
       if (counter < 3) {
-        counter++
+        counter++;
+        console.log(counter);
       } else {
         counter = 0;
-      };
-      view()
+      }
+
+      ;
+      view();
     }
-
   }, 5000);
-}
-
-count()
-
-
-
+};
+/* 
 for (let i = 0; i < w.length; i++) {
   w[i].addEventListener('mouseover', (target) => {
     counting = false;
@@ -172,12 +169,20 @@ for (let i = 0; i < w.length; i++) {
   w[i].addEventListener('mouseout', (target) => {
     counting = true;
   })
-}
- */
+} */
+
+
 var minis = document.querySelectorAll('.room');
 var hovers = document.querySelectorAll('.hover');
 var CTAs = document.querySelectorAll('.CTA');
 var tests = document.querySelectorAll('.position');
+
+if (window.screen.width < 801) {
+  CTAs[0].classList.add('CTA--active');
+  hovers[0].classList.add('hovered');
+  tests[0].classList.add('p--active');
+  count();
+}
 
 var _loop = function _loop(i) {
   minis[i].addEventListener('mouseover', function () {
@@ -186,10 +191,25 @@ var _loop = function _loop(i) {
     tests[i].classList.add('p--active');
   });
   minis[i].addEventListener('mouseout', function () {
+    reset();
     hovers[i].classList.remove('hovered');
     CTAs[i].classList.remove('CTA--active');
     tests[i].classList.remove('p--active');
   });
+
+  if (window.screen.width < 801) {
+    minis[i].addEventListener('click', function () {
+      reset();
+      hovers[i].classList.add('hovered');
+      CTAs[i].classList.add('CTA--active');
+      tests[i].classList.add('p--active');
+      counter = i;
+      counting = false;
+      setTimeout(function () {
+        counting = true;
+      }, 10000);
+    });
+  }
 };
 
 for (var i = 0; i < minis.length; i++) {
@@ -223,7 +243,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60221" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63845" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
