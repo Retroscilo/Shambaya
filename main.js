@@ -1,4 +1,4 @@
-var c1 = document.querySelector('.c1');
+/* var c1 = document.querySelector('.c1');
 var c2 = document.querySelector('.c2');
 var c3 = document.querySelector('.c3');
 var c4 = document.querySelector('.c4');
@@ -51,5 +51,24 @@ for (let i = 0; i < w.length; i++) {
   })
   w[i].addEventListener('mouseout', (target) => {
     counting = true;
+  })
+}
+ */
+var minis = document.querySelectorAll('.room')
+var hovers = document.querySelectorAll('.hover')
+var CTAs = document.querySelectorAll('.CTA')
+var tests = document.querySelectorAll('.position');
+console.log(tests)
+
+for(let i =0; i < minis.length; i++) {
+  minis[i].addEventListener('mouseover', () => {
+    hovers[i].classList.add('hovered');
+    CTAs[i].classList.add('CTA--active');
+    tests[i].classList.add('p--active')
+  })
+  minis[i].addEventListener('mouseout', () => {
+    hovers[i].classList.remove('hovered');
+    CTAs[i].classList.remove('CTA--active');
+    tests[i].classList.remove('p--active')
   })
 }

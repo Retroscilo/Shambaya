@@ -117,86 +117,74 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"main.js":[function(require,module,exports) {
-/* var c1 = document.querySelector('.c1');
-var c2 = document.querySelector('.c2');
-var c3 = document.querySelector('.c3');
-var c4 = document.querySelector('.c4');
-var c = document.querySelectorAll('.c');
+})({"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
 
-var counter = 0;
-var counting = true;
-
-var w = document.querySelectorAll('.w');
-
-const reset = () => {
-  for (let i = 0; i < 4; i++) {
-    c[i].style.opacity = 0;
-    w[i].classList.remove('active')
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
   }
+
+  return bundleURL;
 }
 
-const view = () => {
-  reset()
-  c[counter].style.opacity = 1;
-  w[counter].classList.add('active')
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
+  }
+
+  return '/';
 }
 
-const count = () => {
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
+}
 
-  setInterval(() => {
-    if (counting) {
-      if (counter < 3) {
-        counter++
-      } else {
-        counter = 0;
-      };
-      view()
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+
+  newLink.onload = function () {
+    link.remove();
+  };
+
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
     }
 
-  }, 5000);
+    cssTimeout = null;
+  }, 50);
 }
 
-count()
-
-
-
-for (let i = 0; i < w.length; i++) {
-  w[i].addEventListener('mouseover', (target) => {
-    counting = false;
-    reset()
-    w[i].classList.add('active')
-    c[i].style.opacity = 1;
-    counter = i
-  })
-  w[i].addEventListener('mouseout', (target) => {
-    counting = true;
-  })
-}
- */
-var minis = document.querySelectorAll('.room');
-var hovers = document.querySelectorAll('.hover');
-var CTAs = document.querySelectorAll('.CTA');
-var tests = document.querySelectorAll('.position');
-console.log(tests);
-
-var _loop = function _loop(i) {
-  minis[i].addEventListener('mouseover', function () {
-    hovers[i].classList.add('hovered');
-    CTAs[i].classList.add('CTA--active');
-    tests[i].classList.add('p--active');
-  });
-  minis[i].addEventListener('mouseout', function () {
-    hovers[i].classList.remove('hovered');
-    CTAs[i].classList.remove('CTA--active');
-    tests[i].classList.remove('p--active');
-  });
-};
-
-for (var i = 0; i < minis.length; i++) {
-  _loop(i);
-}
-},{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+module.exports = reloadCSS;
+},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -400,5 +388,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","main.js"], null)
-//# sourceMappingURL=/main.1f19ae8e.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
+//# sourceMappingURL=/index.js.map
