@@ -178,7 +178,6 @@ var minis = document.querySelectorAll('.room');
 var hovers = document.querySelectorAll('.hover');
 var CTAs = document.querySelectorAll('.CTA');
 var tests = document.querySelectorAll('.position');
-console.log(tests);
 
 var _loop = function _loop(i) {
   minis[i].addEventListener('mouseover', function () {
@@ -224,7 +223,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57459" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60221" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

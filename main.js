@@ -58,7 +58,6 @@ var minis = document.querySelectorAll('.room')
 var hovers = document.querySelectorAll('.hover')
 var CTAs = document.querySelectorAll('.CTA')
 var tests = document.querySelectorAll('.position');
-console.log(tests)
 
 for(let i =0; i < minis.length; i++) {
   minis[i].addEventListener('mouseover', () => {
