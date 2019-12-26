@@ -3,7 +3,7 @@
 body {
   font-family: "Montserrat", sans-serif;
   line-height: 1.7em;
-  background: linear-gradient(120deg, #fbd3e9, #bb377d);
+  background: linear-gradient(120deg, #2980b9, #2c3e50);
   overflow-x: hidden;
 }
 
@@ -20,7 +20,7 @@ body {
   color: white;
 
   @media (max-width: 900px) {
-    height: 110vh;
+    height: 180vh;
   }
 }
 
@@ -47,6 +47,12 @@ body {
   transform-origin: center;
   transform: translate(-50%);
   animation: rotate 100s infinite linear;
+
+  @media(max-width: 500px) {
+    width: 400px;
+    height: 400px;
+    top: -120px;
+  }
 }
 
 @keyframes rotate {
@@ -61,6 +67,10 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-47%, -48%);
+
+  @media(max-width: 500px) {
+    width: 200px;
+  }
 }
 
 .title > p {
@@ -82,6 +92,11 @@ body {
   border-radius: 50%;
   margin: auto;
   background: white;
+
+  @media(max-width: 500px) {
+    width: 200px;
+    height: 200px;
+  }
 }
 
 /** Caroussel **/
@@ -150,7 +165,7 @@ body {
     color: white;
     width: 0;
     transition: all 0.5s;
-    background: salmon;
+    background: #bb377d;
     direction: rtl;
     display: inline-block;
     position: absolute;
@@ -276,6 +291,7 @@ body {
 }
 
 .side {
+
   z-index: 1;
   width: 700px;
   height: 700px;
@@ -315,11 +331,19 @@ body {
   & h2 {
     margin-bottom: 30px;
     margin-left: 300px;
+
+    @media(max-width: 500px) {
+      margin-left: 0;
+    }
   }
 
   & p {
     z-index: 2;
     margin-left: 300px;
+
+    @media(max-width: 500px) {
+      margin-left: 0;
+    }
   }
 }
 
