@@ -60,6 +60,7 @@ var minis = document.querySelectorAll('.room')
 var hovers = document.querySelectorAll('.hover')
 var CTAs = document.querySelectorAll('.CTA')
 var tests = document.querySelectorAll('.position');
+var colors = document.querySelectorAll('.color');
 
 if (window.screen.width < 801) {
   CTAs[0].classList.add('CTA--active');
@@ -74,6 +75,7 @@ for (let i = 0; i < minis.length; i++) {
     hovers[i].classList.add('hovered');
     CTAs[i].classList.add('CTA--active');
     tests[i].classList.add('p--active');
+    colors[i].classList.add('color--active')
   });
 
   minis[i].addEventListener('mouseout', () => {
@@ -81,6 +83,7 @@ for (let i = 0; i < minis.length; i++) {
     hovers[i].classList.remove('hovered');
     CTAs[i].classList.remove('CTA--active');
     tests[i].classList.remove('p--active');
+    colors[i].classList.remove('color--active')
   })
 
   if (window.screen.width < 801) {

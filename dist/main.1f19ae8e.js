@@ -176,6 +176,7 @@ var minis = document.querySelectorAll('.room');
 var hovers = document.querySelectorAll('.hover');
 var CTAs = document.querySelectorAll('.CTA');
 var tests = document.querySelectorAll('.position');
+var colors = document.querySelectorAll('.color');
 
 if (window.screen.width < 801) {
   CTAs[0].classList.add('CTA--active');
@@ -189,12 +190,14 @@ var _loop = function _loop(i) {
     hovers[i].classList.add('hovered');
     CTAs[i].classList.add('CTA--active');
     tests[i].classList.add('p--active');
+    colors[i].classList.add('color--active');
   });
   minis[i].addEventListener('mouseout', function () {
     reset();
     hovers[i].classList.remove('hovered');
     CTAs[i].classList.remove('CTA--active');
     tests[i].classList.remove('p--active');
+    colors[i].classList.remove('color--active');
   });
 
   if (window.screen.width < 801) {
@@ -243,7 +246,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65295" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53704" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
