@@ -1,9 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:200i,300,400,500,700&display=swap");
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
 body {
   font-family: "Montserrat", sans-serif;
   line-height: 1.7em;
-  background: linear-gradient(120deg, #2980b9, #2c3e50);
-  overflow-x: hidden;
 }
 
 .section {
@@ -14,40 +17,48 @@ body {
 
 /** Title **/
 .section.title {
-  height: 70vh;
+  height: 65vh;
   color: white;
+  background: linear-gradient(120deg, #2980b9, #2c3e50);
 }
-@media (max-width: 900px) {
-  .section.title {
-    height: 180vh;
-  }
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  height: 130px;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  width: 100vw;
+}
+nav a {
+  text-align: center;
+  font-size: 1.5em;
+  width: 150px;
+  margin-right: 40px;
+  padding: 9px 14px;
+  border-radius: 3px;
+  transition: all 0.3s;
+  background: none;
+  border: 2px solid #2c3e50;
+}
+nav a:hover {
+  cursor: pointer;
+  background: coral;
+  border: 2px solid #2c3e50;
+  color: white;
 }
 
 .title h1 {
-  position: absolute;
   width: 90vw;
-  left: 50%;
-  top: 420px;
-  transform: translate(-50%);
+  margin: 150px auto 0 auto;
   font-size: 1.5em;
   text-align: center;
   line-height: 1.4;
   letter-spacing: 1.2;
 }
 
-.spacer {
-  background: white;
-  height: 350px;
-}
-@media (max-width: 900px) {
-  .spacer {
-    height: 350px;
-  }
-}
-
 .mandala {
   position: absolute;
-  z-index: -2;
   background: url("/test.778d0dc1.png");
   background-size: cover;
   background-repeat: no-repeat;
@@ -57,7 +68,7 @@ body {
   left: 50%;
   top: -180px;
   transform-origin: center;
-  transform: translate(-50%);
+  transform: translate(-50%) rotate(45deg);
   animation: rotate 100s infinite linear;
 }
 @media (max-width: 500px) {
@@ -121,15 +132,15 @@ body {
 
 /** ROOM **/
 .container--room {
+  z-index: 2;
   overflow: hidden;
   position: relative;
   margin: auto;
-  transform: translateY(290px);
   width: 90vw;
-  height: 40vh;
+  height: 50vh;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
 }
@@ -146,9 +157,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: white;
-  color: black;
-  font-size: 1.2em;
+  font-size: 1.5em;
   z-index: 2;
 }
 @media (max-width: 900px) {
@@ -160,11 +169,13 @@ body {
 }
 .room .color {
   width: 70%;
-  height: 10px;
+  height: 5px;
   margin: 0 auto;
-  transition: all 0.5S;
+  transition: all 0.5s;
+  background: black;
 }
 .room .color--active {
+  background: coral;
   width: 100%;
 }
 .room .text {
@@ -182,7 +193,7 @@ body {
   color: white;
   width: 0;
   transition: all 0.5s;
-  background: #bb377d;
+  background: coral;
   direction: rtl;
   display: inline-block;
   position: absolute;
@@ -191,7 +202,7 @@ body {
   border-radius: 5px;
   margin-right: 20px;
 }
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
   .room .CTA {
     width: 100px;
     height: 0;
@@ -217,9 +228,9 @@ body {
   }
 }
 .room .CTA--active {
-  width: 100px;
+  width: 120px;
 }
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
   .room .CTA--active {
     height: 27px;
   }
@@ -229,30 +240,18 @@ body {
   cursor: pointer;
 }
 
-.r1 .color {
-  background: salmon;
-}
 .r1 .room--img {
   background-image: url("/Banuwa.4b15e230.jpg");
 }
 
-.r2 .color {
-  background: wheat;
-}
 .r2 .room--img {
   background-image: url("/SalonSylvana.785904f1.jpg");
 }
 
-.r3 .color {
-  background: royalblue;
-}
 .r3 .room--img {
   background-image: url("/Soleildor.e55dede3.jpg");
 }
 
-.r4 .color {
-  background: lightcoral;
-}
 .r4 .room--img {
   background-image: url("/intemporel.732fd041.jpg");
 }
@@ -284,32 +283,9 @@ body {
 .particulier,
 .entreprise {
   position: relative;
-  height: 50vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
-  background: white;
-}
-
-.side {
-  z-index: 1;
-  width: 700px;
-  height: 700px;
-  position: absolute;
-  background: url("/side.fcd3d590.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  animation: rotateSide 120s infinite linear;
-}
-
-.side--1 {
-  transform: translate(-60%, -30%);
-}
-
-.side--2 {
-  overflow: hidden;
-  right: -25%;
 }
 
 @keyframes rotateSide {
@@ -325,30 +301,26 @@ body {
   font-size: 2.5em;
 }
 
-.section.therapist h2 {
-  margin-bottom: 30px;
-  margin-left: 300px;
+.section {
+  height: 25vh;
+}
+.section h2 {
+  margin: 30px 0 30px 5vw;
 }
 @media (max-width: 500px) {
-  .section.therapist h2 {
+  .section h2 {
     margin-left: 0;
   }
 }
-.section.therapist p {
+.section p {
   z-index: 2;
-  margin-left: 300px;
+  margin-left: 5vw;
+  width: 60vw;
 }
 @media (max-width: 500px) {
-  .section.therapist p {
+  .section p {
     margin-left: 0;
   }
-}
-
-.section.particulier h2 {
-  margin: 50px 0 30px 50px;
-}
-.section.particulier p {
-  margin-left: 50px;
 }
 
 /* .c {
