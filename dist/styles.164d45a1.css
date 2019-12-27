@@ -7,6 +7,8 @@ html {
 body {
   font-family: "Montserrat", sans-serif;
   line-height: 1.7em;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 .section {
@@ -21,11 +23,32 @@ body {
   color: white;
   background: linear-gradient(120deg, #2980b9, #2c3e50);
 }
+@media (max-width: 900px) {
+  .section.title {
+    height: 72vh;
+  }
+}
+@media (max-width: 700px) {
+  .section.title {
+    height: 60vh;
+  }
+}
+@media (max-width: 480px) {
+  .section.title {
+    height: 65vh;
+  }
+}
+@media (max-width: 400px) {
+  .section.title {
+    height: 70vh;
+  }
+}
+
 nav {
   display: flex;
   flex-wrap: wrap;
   height: 130px;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   background: white;
   width: 100vw;
@@ -34,12 +57,16 @@ nav a {
   text-align: center;
   font-size: 1.5em;
   width: 150px;
-  margin-right: 40px;
   padding: 9px 14px;
   border-radius: 3px;
   transition: all 0.3s;
   background: none;
   border: 2px solid #2c3e50;
+}
+@media (max-width: 370px) {
+  nav a {
+    margin-top: 10px;
+  }
 }
 nav a:hover {
   cursor: pointer;
@@ -56,6 +83,17 @@ nav a:hover {
   line-height: 1.4;
   letter-spacing: 1.2;
 }
+@media (max-width: 1470px) {
+  .title h1 {
+    font-size: 1.2em;
+    margin: 130px auto 0 auto;
+  }
+}
+@media (max-width: 900px) {
+  .title h1 {
+    margin: 90px auto 0 auto;
+  }
+}
 
 .mandala {
   position: absolute;
@@ -71,7 +109,7 @@ nav a:hover {
   transform: translate(-50%) rotate(45deg);
   animation: rotate 100s infinite linear;
 }
-@media (max-width: 500px) {
+@media (max-width: 700px) {
   .mandala {
     width: 400px;
     height: 400px;
@@ -91,7 +129,7 @@ nav a:hover {
   left: 50%;
   transform: translate(-47%, -48%);
 }
-@media (max-width: 500px) {
+@media (max-width: 700px) {
   .circle img {
     width: 200px;
   }
@@ -117,7 +155,7 @@ nav a:hover {
   margin: auto;
   background: white;
 }
-@media (max-width: 500px) {
+@media (max-width: 700px) {
   .circle {
     width: 200px;
     height: 200px;
