@@ -19,35 +19,15 @@ body {
 
 /** Title **/
 .section.title {
-  height: 65vh;
+  height: 80vh;
   color: white;
   background: linear-gradient(120deg, #2980b9, #2c3e50);
-}
-@media (max-width: 900px) {
-  .section.title {
-    height: 72vh;
-  }
-}
-@media (max-width: 700px) {
-  .section.title {
-    height: 60vh;
-  }
-}
-@media (max-width: 480px) {
-  .section.title {
-    height: 65vh;
-  }
-}
-@media (max-width: 400px) {
-  .section.title {
-    height: 70vh;
-  }
 }
 
 nav {
   display: flex;
   flex-wrap: wrap;
-  height: 130px;
+  height: 20vh;
   justify-content: space-evenly;
   align-items: center;
   background: white;
@@ -77,43 +57,31 @@ nav a:hover {
 
 .title h1 {
   width: 90vw;
-  margin: 150px auto 0 auto;
   font-size: 1.5em;
   text-align: center;
   line-height: 1.4;
   letter-spacing: 1.2;
+  bottom: 0;
+  margin: 0 auto;
 }
-@media (max-width: 1470px) {
+@media (max-width: 540px) {
   .title h1 {
-    font-size: 1.2em;
-    margin: 130px auto 0 auto;
-  }
-}
-@media (max-width: 900px) {
-  .title h1 {
-    margin: 90px auto 0 auto;
+    font-size: 1.1em;
   }
 }
 
-.mandala {
-  position: absolute;
-  background: url("/test.778d0dc1.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 600px;
-  height: 600px;
-  left: 50%;
-  top: -180px;
-  transform-origin: center;
-  transform: translate(-50%) rotate(45deg);
-  animation: rotate 100s infinite linear;
+.spacer--title {
+  width: 100vw;
+  height: 60vh;
 }
-@media (max-width: 700px) {
-  .mandala {
-    width: 400px;
-    height: 400px;
-    top: -120px;
+@media (max-width: 1000px) {
+  .spacer--title {
+    height: 50vh;
+  }
+}
+@media (max-width: 540px) {
+  .spacer--title {
+    height: 43vh;
   }
 }
 
@@ -122,19 +90,6 @@ nav a:hover {
     transform: translate(-50%) rotate(360deg);
   }
 }
-.circle img {
-  position: relative;
-  width: 300px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-47%, -48%);
-}
-@media (max-width: 700px) {
-  .circle img {
-    width: 200px;
-  }
-}
-
 .title > p {
   width: 1200px;
   font-size: 1.5em;
@@ -145,21 +100,49 @@ nav a:hover {
   margin: 150px auto;
 }
 
-.circle {
-  /* position: relative; */
+.mandala {
+  position: absolute;
+  background: url("/test.778d0dc1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 500px;
+  height: 500px;
   left: 50%;
-  width: 300px;
-  height: 300px;
-  transform: translate(0, -10%);
+  top: 20px;
+  transform-origin: center;
+  transform: translate(-50%) rotate(45deg);
+  animation: rotate 100s infinite linear;
+}
+@media (max-width: 540px) {
+  .mandala {
+    top: -150px;
+  }
+}
+
+.circle {
+  position: absolute;
+  top: 145px;
+  left: 50%;
+  transform: translate(-50%);
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
   margin: auto;
   background: white;
 }
-@media (max-width: 700px) {
+@media (max-width: 540px) {
   .circle {
-    width: 200px;
-    height: 200px;
+    top: -25px;
   }
+}
+
+.circle img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-47%, -50%);
+  width: 250px;
 }
 
 /** Caroussel **/
