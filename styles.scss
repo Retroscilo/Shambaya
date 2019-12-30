@@ -7,7 +7,6 @@ html {
 
 body {
   font-family: "Montserrat", sans-serif;
-  line-height: 1.7em;
   width: 100vw;
   overflow-x: hidden;
 }
@@ -15,7 +14,27 @@ body {
 .section {
   position: relative;
   width: 100vw;
-  height: 100vh;
+}
+
+.deco {
+  position: relative;
+  width: 100vw;
+
+  & .deco1 {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 0;
+    background: url('./assets/deco.png');
+  }
+
+  & .deco2 {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    right: 0;
+    background: url('./assets/deco.png');
+  }
 }
 
 /** Title **/
@@ -45,12 +64,19 @@ nav {
     background: none;
     border: 2px solid #2c3e50;
 
-    @media(max-width: 370px) {
+    @media (max-width: 370px) {
       margin-top: 10px;
     }
   }
 
   & a:hover {
+    cursor: pointer;
+    background: coral;
+    border: 2px solid #2c3e50;
+    color: white;
+  }
+
+  & a:active {
     cursor: pointer;
     background: coral;
     border: 2px solid #2c3e50;
@@ -67,7 +93,7 @@ nav {
   bottom: 0;
   margin: 0 auto;
 
-  @media(max-width: 540px) {
+  @media (max-width: 540px) {
     font-size: 1.1em;
   }
 }
@@ -75,11 +101,11 @@ nav {
 .spacer--title {
   width: 100vw;
   height: 60vh;
-  @media(max-width: 1000px) {
+  @media (max-width: 1100px) {
     height: 50vh;
   }
 
-  @media(max-width: 540px) {
+  @media (max-width: 800px) {
     height: 43vh;
   }
 }
@@ -113,8 +139,8 @@ nav {
   transform-origin: center;
   transform: translate(-50%) rotate(45deg);
   animation: rotate 100s infinite linear;
-  
-  @media(max-width: 540px) {
+
+  @media (max-width: 1100px) {
     top: -150px;
   }
 }
@@ -130,7 +156,7 @@ nav {
   margin: auto;
   background: white;
 
-  @media(max-width: 540px) {
+  @media (max-width: 1100px) {
     top: -25px;
   }
 }
@@ -223,7 +249,7 @@ nav {
     border-radius: 5px;
     margin-right: 20px;
 
-    @media (max-width: 1200px) {
+    @media (max-width: 1400px) {
       width: 100px;
       height: 0;
       margin: 15px 0;
@@ -245,7 +271,7 @@ nav {
   & .p--active {
     transform: translate(-50px);
 
-    @media (max-width: 1100px) {
+    @media (max-width: 1400px) {
       transform: translate(0, -20px);
     }
   }
@@ -253,7 +279,7 @@ nav {
   & .CTA--active {
     width: 120px;
 
-    @media (max-width: 1200px) {
+    @media (max-width: 1400px) {
       height: 27px;
     }
   }
@@ -321,41 +347,85 @@ nav {
   flex-direction: column;
 }
 
-
 @keyframes rotateSide {
   to {
     transform: translate(-60%, -30%) rotate(360deg);
   }
 }
 
-.section h2 {
-  z-index: 2;
-  height: 5vh;
-  display: flex;
-  align-items: center;
-  font-size: 2.5em;
-}
-
 .section {
-
-  height: 25vh;
-
   & h2 {
     margin: 30px 0 30px 5vw;
-
-    @media (max-width: 500px) {
-      margin-left: 0;
-    }
+    line-height: 110%;
+    z-index: 2;
+    height: 5vh;
+    font-size: 2.5em;
   }
 
   & p {
     z-index: 2;
     margin-left: 5vw;
+    margin-bottom: 30px;
     width: 60vw;
+    line-height: 120%;
 
-    @media (max-width: 500px) {
-      margin-left: 0;
+    @media(max-width: 400px) {
+      margin-bottom: 0;
     }
+  }
+}
+
+.line {
+  background: black;
+  margin-left: 5vw;
+  height: 5px;
+  transform: translateY(-25px);
+}
+
+.therapist .line {
+  width: 383px;
+
+    @media(max-width: 410px) {
+    transform: translateY(0);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 230px;
+  }
+}
+
+.particulier .line {
+  width: 358px;
+
+  @media(max-width: 380px) {
+    width: 205px;
+    margin-top: 43px;
+  }
+}
+
+.entreprise .line {
+  width: 358px;
+
+  @media(max-width: 380px) {
+    width: 205px;
+    margin-top: 43px;
+  }
+}
+
+.particulier__gallery {
+  & .gallery--1 {
+    width: 80%;
+    height: 50vh;
+    background: coral;
+    margin: auto;
+  }
+}
+
+.entreprise__gallery {
+  & .gallery--1 {
+    width: 80%;
+    height: 50vh;
+    background: royalblue;
+    margin: auto;
   }
 }
 

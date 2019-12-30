@@ -12,6 +12,7 @@ const reset = () => {
     hovers[i].classList.remove('hovered');
     CTAs[i].classList.remove('CTA--active');
     tests[i].classList.remove('p--active');
+    colors[i].classList.remove('color--active')
   }
 }
 
@@ -20,16 +21,14 @@ const view = () => {
   hovers[counter].classList.add('hovered');
   CTAs[counter].classList.add('CTA--active');
   tests[counter].classList.add('p--active');
+  colors[counter].classList.add('color--active')
 }
 
 const count = () => {
-
-  console.log(counter)
   setInterval(() => {
     if (counting == true) {
       if (counter < 3) {
         counter++
-        console.log(counter)
       } else {
         counter = 0;
       };
@@ -66,6 +65,7 @@ if (window.screen.width < 801) {
   CTAs[0].classList.add('CTA--active');
   hovers[0].classList.add('hovered')
   tests[0].classList.add('p--active')
+  colors[0].classList.add('color--active')
 
   count()
 }
@@ -93,6 +93,7 @@ for (let i = 0; i < minis.length; i++) {
       hovers[i].classList.add('hovered');
       CTAs[i].classList.add('CTA--active');
       tests[i].classList.add('p--active');
+      colors[i].classList.add('color--active')
       counter = i
       counting = false;
 
